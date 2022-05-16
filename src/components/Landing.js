@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import Income from "./Income";
 import Bills from "./Bills";
 
@@ -8,7 +9,8 @@ const StyledLanding = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 5% 0;
+    height: 100%;
     background-color: #63D471;
     .group {
         display: flex;
@@ -78,10 +80,11 @@ const StyledLanding = styled.div`
 `
 
 const Landing = () => {
+    const { groups } = useSelector((state) => state.groups);
     return (
         <StyledLanding>
             <Income />
-            <Bills />
+            {groups.map(group => <Bills name={group}/>)}
         </StyledLanding>
     )
 }
