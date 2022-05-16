@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Auth } from "aws-amplify";
 import styled from "styled-components";
 
 const StyledRegister = styled.div`
@@ -61,22 +62,32 @@ const Register = () => {
         }
     });
 
-    const clearErrorState = () => {
-        setState({
-            errors: {
-                cognito: null,
-                blankfield: false,
-                passwordmatch: false
-            }
-        })
-    }
-
     const handleSubmit = event => {
         event.preventDefault();
     
     }
 
-
+    const { username, email, password } = state;
+    try {
+    //     const signUpResponse = Auth.signUp({
+    //         username,
+    //         password, 
+    //         attributes: {
+    //             email: email
+    //         }
+    //     })
+    //     console.log(signUpResponse)
+    //     this.props.history.push("/welcome")
+    } catch(error) {
+    //     let err = null;
+    //     !error.message ? err = { "message": error } : err = error;
+    //     setState({
+    //         errors: {
+    //             ...state.errors,
+    //             cognito: error
+    //         }
+    //     })
+    }
 
     const onInputChange = event => {
         setState({
@@ -86,14 +97,15 @@ const Register = () => {
 
     return (
         <StyledRegister>
-            <form onSubmit={handleSubmit}>
+            <div><h1>Works</h1></div>
+            {/* <form onSubmit={handleSubmit}>
                 <input className="text" id="username" type="text" value={state.username} onChange={onInputChange} placeholder="Username"/>
                 <input className="text" id="email" type="email" value={state.email} onChange={onInputChange} placeholder="Email"/>
                 <input className="text" id="password" type="password" value={state.password} onChange={onInputChange} placeholder="Password"/>
                 <input className="text" id="confirmPassword" type="password" value={state.confirmPassword} onChange={onInputChange} placeholder="Confirm Password"/>
                 <input type="submit" id="submit" value="Register"/>
                 <p>Already have an account? <Link to="/login">SIGN IN!</Link></p>
-            </form>
+            </form> */}
         </StyledRegister>
     )
 }

@@ -4,6 +4,7 @@ import Landing from './components/Landing';
 import Header from './components/Header';
 import Login from './components/Login';
 import Register from './components/Register';
+import Welcome from './components/Welcome';
 
 function App() {
   return (
@@ -12,11 +13,12 @@ function App() {
       <div>
         <Header />
         <Routes>
-            <Route path="/" element={<Landing />}/>
-            <Route path="login" element={<Login />}/>
-            <Route path="register" element={<Register />} />
-          </Routes>
-          </div>
+          <Route path="/" element={<Landing />}/>
+          <Route path="login" element={<Login />}/>
+          <Route path="register" element={<Register />} />
+          <Route path="welcome" element={<Welcome />} />
+        </Routes>
+      </div>
       </BrowserRouter>
     </div>
   );
