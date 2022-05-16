@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledLogin = styled.div`
+const StyledRegister = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,10 +48,12 @@ const StyledLogin = styled.div`
 }
 `
 
-const Login = () => {
+const Register = () => {
     const [state, setState] = useState({
         username: "",
+        email: "",
         password: "",
+        confirmPassword: "",
         errors: {
             cognito: null,
             blankfield: false,
@@ -59,9 +61,22 @@ const Login = () => {
         }
     });
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const clearErrorState = () => {
+        setState({
+            errors: {
+                cognito: null,
+                blankfield: false,
+                passwordmatch: false
+            }
+        })
     }
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    
+    }
+
+
 
     const onInputChange = event => {
         setState({
@@ -70,15 +85,17 @@ const Login = () => {
     }
 
     return (
-        <StyledLogin>
+        <StyledRegister>
             <form onSubmit={handleSubmit}>
-                <input className="text" type="text" value={state.username} onChange={onInputChange} placeholder="Username"/>
+                <input className="text" id="username" type="text" value={state.username} onChange={onInputChange} placeholder="Username"/>
+                <input className="text" id="email" type="email" value={state.email} onChange={onInputChange} placeholder="Email"/>
                 <input className="text" id="password" type="password" value={state.password} onChange={onInputChange} placeholder="Password"/>
-                <input type="submit" id="submit" value="Login"/>
-                <p>No account yet? Click <Link to="/register">HERE</Link></p>
+                <input className="text" id="confirmPassword" type="password" value={state.confirmPassword} onChange={onInputChange} placeholder="Confirm Password"/>
+                <input type="submit" id="submit" value="Register"/>
+                <p>Already have an account? <Link to="/login">SIGN IN!</Link></p>
             </form>
-        </StyledLogin>
+        </StyledRegister>
     )
 }
 
-export default Login;
+export default Register;

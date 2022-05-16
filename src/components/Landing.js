@@ -68,11 +68,6 @@ const StyledLanding = styled.div`
         align-items: center;
         margin: 1% 0;
         width: 85%;
-        // border: 1px solid red;
-    }
-    button {
-        border: none;
-        background-color: white;
     }
     .filled {
         border: none;
