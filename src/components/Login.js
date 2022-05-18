@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -8,9 +8,6 @@ const StyledLogin = styled.div`
     align-items: center;
     height: 100vh;
     background-color: #63D471;
-
-@media (max-width: 1000px) {
-
     form {
         display: flex;
         flex-direction: column;
@@ -18,14 +15,14 @@ const StyledLogin = styled.div`
         align-items: center;
         border: 1px solid grey;
         border-radius: 10px;
-        width: 60%;
-        height: 50%;
+        width: 20%;
+        height: 250px;
         background-color: white;
     }
     input {
         margin: 2%;
-        width: 50%;
-        height: 10%;
+        width: 60%;
+        height: 15%;
         border: 1px solid grey;
     }
     .text {
@@ -35,12 +32,26 @@ const StyledLogin = styled.div`
         background-color: #00AC11;
     }
 
+@media (max-width: 1000px) {
+
+    form {
+        width: 40%;
+    }
+    input {
+        width: 60%;
+    }
+
 }
 
 @media (max-width: 500px) {
+    form {
+        height: 250px;
+        width: 70%;
+        padding: 5% 0;
+    }
     input {
         margin: 5%;
-        width: 80%;
+        width: 70%;
     }
     .text {
         height: 15%;
@@ -48,8 +59,8 @@ const StyledLogin = styled.div`
 }
 `
 
-const Login = () => {
-    const [state, setState] = useState({
+class Login extends Component {
+    state = {
         username: "",
         password: "",
         errors: {
@@ -57,28 +68,29 @@ const Login = () => {
             blankfield: false,
             passwordmatch: false
         }
-    });
+    };
 
-    const handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
     }
 
-    const onInputChange = event => {
-        setState({
+    onInputChange = event => {
+        this.setState({
             [event.target.id]: event.target.value
         })
     }
-
-    return (
-        <StyledLogin>
-            <form onSubmit={handleSubmit}>
-                <input className="text" type="text" value={state.username} onChange={onInputChange} placeholder="Username"/>
-                <input className="text" id="password" type="password" value={state.password} onChange={onInputChange} placeholder="Password"/>
-                <input type="submit" id="submit" value="Login"/>
-                <p>No account yet? Click <Link to="/register">HERE</Link></p>
-            </form>
-        </StyledLogin>
-    )
+    render(){
+        return (
+            <StyledLogin>
+                <form onSubmit={this.handleSubmit}>
+                    <input className="text" type="text" value={this.state.username} onChange={this.onInputChange} placeholder="Username"/>
+                    <input className="text" id="password" type="password" value={this.state.password} onChange={this.onInputChange} placeholder="Password"/>
+                    <input type="submit" id="submit" value="Login"/>
+                    <p>No account yet? Click <Link to="/register">HERE</Link></p>
+                </form>
+            </StyledLogin>
+        )
+    }
 }
 
 export default Login;

@@ -12,14 +12,19 @@ const StyledHeader = styled.div`
     .account {
         display: flex;
         justify-content: space-around;
-        width: 30%;
-        // border: 1px solid red;
+        width: 15%;
     }
-    Link {
-        // padding: 3% 5%;
-        border: 1px solid black;
-        // border-radius: 5px;
-        // background-color: #00AC11;
+
+    @media (max-width: 1000px) {
+        .account {
+            width: 20%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .account {
+            width: 50%;
+        }
     }
 `
 const linkStyle = {
@@ -37,7 +42,7 @@ const Header = () => {
             <div>Logo</div>
             <div className="account">
                 <Link to="/register" style={linkStyle}>Register</Link>
-                <Link to="/login" style={linkStyle}>Login</Link>
+                <Link to="/" style={linkStyle}>Login</Link>
             </div>
         </StyledHeader>
     )

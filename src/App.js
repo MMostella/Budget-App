@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Register from './components/Register';
 import Welcome from './components/Welcome';
+import Overview from './components/Overview';
 
 function App() {
   return (
@@ -12,11 +13,12 @@ function App() {
       <BrowserRouter>
       <div>
         <Header />
-        <Routes>
-          <Route path="/" element={<Landing />}/>
-          <Route path="login" element={<Login />}/>
+        <Routes >
+          <Route path="/" element={<Login />}/>
+          <Route path="landing" element={<Landing />}/>
           <Route path="register" element={<Register />} />
           <Route path="welcome" element={<Welcome />} />
+          <Route path="overview" element={<Overview />} />
         </Routes>
       </div>
       </BrowserRouter>
