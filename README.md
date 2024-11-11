@@ -7,6 +7,6 @@ With user account creation and authentication. Each user will have a private tai
 
 This is a starting application that I plan to eventually turn into a fully open app on the market.
 
-This will be a full stack (frontend and backend) application planned, designed and built by myself (Mason Mostella).
+This will be a full stack (frontend and backend) application.
 
 Though is a work in progress, I plan to update this after every major addition to the project.
