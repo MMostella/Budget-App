@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5% 0 10%;
+  border: 1px solid black;
+  background-color: white;
+  height: 60px; /* Adjusted height to accommodate the logo image */
+}
+
+.logo-image {
+  height: 40px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between the image and the logo text */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
